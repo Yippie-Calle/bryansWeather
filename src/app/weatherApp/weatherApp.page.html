@@ -1,0 +1,20 @@
+<ion-content>
+  <div class="container">
+    <h2>Let's check the Weather!</h2>
+    <ion-input [(ngModel)]="history"> </ion-input>
+    <ion-button color="success" fill="outline" (click)="addHistory()"
+      >Check Weather</ion-button
+    >
+
+    <ion-list lines="none">
+      <ion-item
+        (click)="removeHistory(history)"
+        button
+        *ngFor="let history of allHistory$ | async"
+      >
+        <ion-icon name="checkmark-circle-outline" slot="end"></ion-icon>
+        <ion-label> {{history.content}} </ion-label>
+      </ion-item>
+    </ion-list>
+  </div>
+</ion-content>
